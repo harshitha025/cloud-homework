@@ -111,4 +111,10 @@ During development, I ran into a few issues that required debugging:
 * There was a mismatch between local (Windows) and container (Linux) environments, which highlighted the importance of cross-platform compatibility.
 * SSH and key management required reconfiguration after losing the initial key pair.
 
+## Design Decisions
+
+* I chose EC2 over serverless options to keep full control over the runtime and simplify deployment for a containerized service
+* Docker was used to ensure consistency between local and cloud environments
+* IAM roles were used instead of access keys to follow AWS security best practices
+
 These issues helped reinforce how environment differences and dependency management impact deployments.
