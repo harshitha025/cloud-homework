@@ -66,7 +66,7 @@ The deployment was done manually to keep control over each step:
 * Built the Docker image directly on EC2
 * Ran the container and exposed it on port 80
 
-This setup keeps things simple while still reflecting a realistic deployment flow.
+This setup keeps things simple while still reflecting a realistic deployment flow. The deployment was intentionally done manually instead of using managed services to better understand the underlying infrastructure and control each step of the process.
 
 ---
 
@@ -102,3 +102,13 @@ This setup is intentionally simple, but in a production scenario I would:
 ## Final Thoughts
 
 The goal of this project was to demonstrate a clear understanding of how application code moves from local development to a running service in the cloud. The setup uses basic AWS building blocks, but focuses on correct usage—especially around containerization and secure access to resources.
+
+## Challenges Faced
+
+During development, I ran into a few issues that required debugging:
+
+* Docker build initially failed due to Windows-specific dependencies (pywin32) being included in requirements.txt. This was resolved by minimizing dependencies to only required packages.
+* There was a mismatch between local (Windows) and container (Linux) environments, which highlighted the importance of cross-platform compatibility.
+* SSH and key management required reconfiguration after losing the initial key pair.
+
+These issues helped reinforce how environment differences and dependency management impact deployments.
