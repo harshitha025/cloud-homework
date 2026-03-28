@@ -74,7 +74,7 @@ This setup keeps things simple while still reflecting a realistic deployment flo
 
 The application includes an `/upload` endpoint that creates a file and uploads it to an S3 bucket using `boto3`.
 
-Instead of using access keys, the EC2 instance is assigned an IAM role with S3 permissions. The AWS SDK automatically picks up these temporary credentials, which avoids hardcoding secrets and aligns with standard AWS practices. The application relies on AWS SDK’s default credential provider chain, which automatically retrieves temporary credentials from the IAM role.
+Instead of using access keys, the EC2 instance is assigned an IAM role with S3 permissions. The AWS SDK automatically picks up these temporary credentials, which avoids hardcoding secrets and aligns with standard AWS practices. The application relies on AWS SDK’s default credential provider chain, which automatically retrieves temporary credentials from the IAM role. The application uses the AWS SDK default credential provider chain to retrieve temporary credentials from the IAM role attached to the EC2 instance.
 
 ---
 
